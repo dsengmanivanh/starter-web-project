@@ -15,10 +15,10 @@ function component() {
 
   btn.innerHTML = 'Click me and check the console!';
   //lazy load
-  btn.onclick = e => import(/* webpackChunkName: "print" */ './print').then(module => {
+/*  btn.onclick = e => import('./print').then(module => {
     var print = module.default;
     print();
-  });
+  });*/
 
   elementPre.innerHTML = [
        'Hello webpack!',

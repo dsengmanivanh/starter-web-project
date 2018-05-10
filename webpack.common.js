@@ -7,7 +7,8 @@ module.exports = {
  entry: {
    page1: './src/js/page1.js',
    another: './src/js/another-module.js',
-   index: './src/js/index.js'
+   index: './src/js/index.js',
+   app:'./src/components/App.js'
  },
  output: {
    filename: '[name].[chunkhash].js',
@@ -22,12 +23,17 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: './src/index.html',
-      chunks: ['']
+      chunks: ['index']
     }),
     new HtmlWebpackPlugin({
       filename: 'page1.html',
       title: 'Page 1',
       chunks: ['page1','another']
+    }),
+    new HtmlWebpackPlugin({
+      template: "./src/app.html",
+      filename: "./app.html",
+      chunks: ['app']
     })
  ],
  module: {
@@ -38,6 +44,13 @@ module.exports = {
          fallback: 'style-loader',
          use: ['css-loader', 'sass-loader']
        })
+     },
+     {
+       test: /\.js$/,
+       exclude: /node_modules/,
+       use: {
+         loader: "babel-loader"
+       }
      }
    ]
   }
