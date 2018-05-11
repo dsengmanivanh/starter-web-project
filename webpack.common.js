@@ -2,13 +2,16 @@ const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const glob = require("glob");
 
 module.exports = {
  entry: {
-   page1: './src/js/page1.js',
-   another: './src/js/another-module.js',
+   //page1: './src/js/page1.js',
+   //another: './src/js/another-module.js',
+   page1: glob.sync("./src/js/*.js"),
    index: './src/js/index.js',
-   app:'./src/components/App.js'
+   app:'./src/components/App.js',
+   faq: glob.sync("./src/components/faq/*.js")
  },
  output: {
    filename: '[name].[chunkhash].js',
@@ -28,12 +31,12 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename: 'page1.html',
       title: 'Page 1',
-      chunks: ['page1','another']
+      chunks: ['page1']
     }),
     new HtmlWebpackPlugin({
       template: "./src/app.html",
       filename: "./app.html",
-      chunks: ['app']
+      chunks: ['app','faq']
     })
  ],
  module: {
