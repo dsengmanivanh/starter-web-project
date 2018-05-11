@@ -14,7 +14,7 @@ module.exports = {
    faq: glob.sync("./src/components/faq/*.js")
  },
  output: {
-   filename: '[name].[chunkhash].js',
+   filename: 'js/[name].[chunkhash].js',
    path: path.resolve(__dirname, 'dist')
  },
  plugins: [
@@ -54,6 +54,10 @@ module.exports = {
        use: {
          loader: "babel-loader"
        }
+     },
+     {
+       test: /\.(jpe?g|png|gif|svg)$/i,
+       loader: "file-loader?name=/media/[name].[ext]"
      }
    ]
   }
