@@ -56,8 +56,15 @@ module.exports = {
        }
      },
      {
-       test: /\.(jpe?g|png|gif|svg)$/i,
-       loader: "file-loader?name=/media/[name].[ext]"
+       test: /\.(png|jpg|gif)$/,
+       use: [
+         {
+           loader: 'file-loader',
+           options: {
+             name:'media/[name].[ext]'
+           }
+         }
+       ]
      }
    ]
   }
