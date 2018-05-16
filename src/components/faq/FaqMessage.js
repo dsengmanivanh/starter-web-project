@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import '../../scss/FaqMessage.scss';
+import React, { Component } from 'react';
+import './FaqMessage.scss';
 
 class FaqMessage extends Component  {
 
