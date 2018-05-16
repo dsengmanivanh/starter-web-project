@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
-import ReactDOM from 'react-dom'
-import Faq from './faq/Faq'
+import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
+import Faq from './faq/Faq';
 import '../scss/App.scss';
 
 class App extends Component {

@@ -6,7 +6,6 @@ const glob = require("glob");
 
 module.exports = {
  entry: {
-   page1: glob.sync("./src/js/*.js"),
    index: './src/js/index.js',
    app:'./src/components/App.js',
    faq: glob.sync("./src/components/faq/*.js")
@@ -25,11 +24,6 @@ module.exports = {
       filename: 'index.html',
       template: './src/index.html',
       chunks: ['index']
-    }),
-    new HtmlWebpackPlugin({
-      filename: 'page1.html',
-      title: 'Page 1',
-      chunks: ['page1']
     }),
     new HtmlWebpackPlugin({
       template: "./src/app.html",
