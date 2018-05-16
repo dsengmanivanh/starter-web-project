@@ -6,8 +6,6 @@ const glob = require("glob");
 
 module.exports = {
  entry: {
-   //page1: './src/js/page1.js',
-   //another: './src/js/another-module.js',
    page1: glob.sync("./src/js/*.js"),
    index: './src/js/index.js',
    app:'./src/components/App.js',
@@ -49,11 +47,15 @@ module.exports = {
        })
      },
      {
-       test: /\.js$/,
-       exclude: /node_modules/,
-       use: {
-         loader: "babel-loader"
-       }
+        test: /\.js$/,
+        exclude: /(node_modules)/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            babelrc: false,
+            presets: ['@babel/preset-env','@babel/preset-react']
+          }
+        }
      },
      {
        test: /\.(png|jpg|gif)$/,
