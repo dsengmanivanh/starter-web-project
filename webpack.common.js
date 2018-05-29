@@ -1,20 +1,20 @@
 const path = require('path');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const glob = require("glob");
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
- entry: {
+  entry: {
    index: './src/js/index.js',
    app:'./src/components/App.js',
    faq: glob.sync("./src/components/faq/*.js")
- },
- output: {
-   filename: 'js/[name].[chunkhash].js',
+  },
+  output: {
+   filename: 'js/[name].bundle.js',
    path: path.resolve(__dirname, 'dist')
- },
- plugins: [
+  },
+  plugins: [
     new CleanWebpackPlugin(['dist']),
     new ExtractTextPlugin({
       filename: 'css/[name].css',
@@ -30,8 +30,8 @@ module.exports = {
       filename: "./app.html",
       chunks: ['app','faq']
     })
- ],
- module: {
+  ],
+  module: {
    rules: [
      {
        test: /\.scss$/,

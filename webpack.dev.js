@@ -7,15 +7,19 @@ const Visualizer = require('webpack-visualizer-plugin');
 module.exports = merge(common, {
    devtool: 'inline-source-map',
    devServer: {
-     contentBase: './dist'
+     contentBase: './dist',
+     hot: true
    },
+   mode: 'development',
    plugins: [
-      new webpack.DefinePlugin({
-       'process.env.NODE_ENV': JSON.stringify('production')
-     }),
-     new Visualizer({
+      new Visualizer({
         filename: './statistics.html'
-      })
+      }),
+      new webpack.NamedModulesPlugin(),
+      new webpack.HotModuleReplacementPlugin()
       //new BundleAnalyzerPlugin()
-   ]
+      //new webpack.DefinePlugin({
+      // 'process.env.NODE_ENV': JSON.stringify('development')
+     //}),
+  ]
 });
