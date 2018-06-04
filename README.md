@@ -1,26 +1,33 @@
 # Front End Starter pack
 
-This is a sample projet with html, react, sass, hot reloading and build it by webpack.
+A barebones React app using webpack, sass and hot reloading.
 
-## Sample
+## Demo
 
+https://fierce-temple-30386.herokuapp.com/index.html
 
 ## Installation
 
-npm install
+```
+$ npm install
+```
 
-## Launch
+## Running Locally
 
-npm start
+```
+$ npm start
+```
 
 It is for dev environment and you can see some statistics with visualize (http://localhost:8080/statistics.html)
 
 
 ## Prod
 
-npm run build
+```
+$ npm run build
+```
 
-This command line create a dist
+This command line create a dist with your bundle
 
 ## Add a new bundle
 
@@ -34,10 +41,16 @@ new HtmlWebpackPlugin({
   chunks: ['entry']
 })
 
+## Deploying to Heroku
+
+```
+$ heroku create
+$ git push heroku master
+$ heroku open
+```
+
 ## Link
 
-*Atom*
-https://www.sitepoint.com/10-essential-atom-add-ons/
+- [Atom](https://www.sitepoint.com/10-essential-atom-add-ons/)
 
-*Webpack*
-https://webpack.js.org/
+- [Webpack](https://webpack.js.org/)
