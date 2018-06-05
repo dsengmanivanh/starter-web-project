@@ -49,8 +49,16 @@ $ git push heroku master
 $ heroku open
 ```
 
+## Vulnerabilities
+
+```
+$ npm update request --depth 3
+```
+
+It still 5 vulnerabilities with [node sass](https://github.com/sass/node-sass/issues/2355)
+
 ## Link
 
 - [Atom](https://www.sitepoint.com/10-essential-atom-add-ons/)
 
-- [Webpack](https://webpack.js.org/)
+- [Webpack](http://putaindecode.io/fr/articles/js/webpack/)
